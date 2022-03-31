@@ -1,11 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+  return <div className="bg-blue-700 text-cyan-50">Mahir Prcanovic</div>;
 }
 
 export default App;
