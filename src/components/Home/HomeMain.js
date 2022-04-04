@@ -1,12 +1,13 @@
 import React from "react";
 import { MapContainer, TileLayer, Polygon } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { jsonData } from "../Global/data";
-import { statesData } from "../Global/states";
+import { data } from "../Global/data2";
+import { bosnaData } from "../Global/ba";
 const HomeMain = () => {
   const center = [44.282633098132095, 17.785360738692958];
   // const jsonData = 1;
   // console.log(jsonData);
+  console.log(bosnaData);
   return (
     <div className="bg-red-200 h-screen container mx-auto flex flex-col items-center">
       <h1 className="text-lg text-white font-semibold">
@@ -23,19 +24,12 @@ const HomeMain = () => {
           url="https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=IIIGqRrVE9Zu8srlRf8d"
           attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
         />
-        {jsonData.features.map((feature) => {
+        {data.features.map((feature) => {
           const coordinates = feature.geometry.coordinates[0].map((coor) => [
             coor[1],
             coor[0],
           ]);
-          statesData.features.map((state) => {
-            const cord = state.geometry.coordinates[0].map((item) => [
-              item[1],
-              item[0],
-            ]);
-            console.log(cord);
-            return <a>Mahir</a>;
-          });
+
           return (
             <Polygon
               pathOptions={{
