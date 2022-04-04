@@ -7,7 +7,19 @@ const HomeMain = () => {
   const center = [44.282633098132095, 17.785360738692958];
   // const jsonData = 1;
   // console.log(jsonData);
-  console.log(bosnaData);
+  const overHandler = (e) => {
+    const layer = e.target;
+    layer.setStyle({
+      weight: 5,
+      color: "#666",
+      dashArray: "",
+      fillOpacity: 0.7,
+    });
+
+    // if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    //   layer.bringToFront();
+    // }
+  };
   return (
     <div className="bg-red-200 h-screen container mx-auto flex flex-col items-center">
       <h1 className="text-lg text-white font-semibold">
