@@ -2,7 +2,6 @@ import React from "react";
 import { MapContainer, TileLayer, Polygon } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { data } from "../Global/data2";
-import { bosnaData } from "../Global/ba";
 const HomeMain = () => {
   const center = [44.282633098132095, 17.785360738692958];
   // const jsonData = 1;
