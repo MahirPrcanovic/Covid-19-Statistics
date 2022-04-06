@@ -1,24 +1,13 @@
 import React from "react";
-import { MapContainer, TileLayer, Polygon } from "react-leaflet";
+import { TileLayer, Polygon } from "react-leaflet";
+import { Popup } from "react-leaflet";
+import { MapContainer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { data } from "../Global/data2";
 const HomeMain = () => {
   const center = [44.282633098132095, 17.785360738692958];
-  // const jsonData = 1;
-  // console.log(jsonData);
-  const overHandler = (e) => {
-    const layer = e.target;
-    layer.setStyle({
-      weight: 5,
-      color: "#666",
-      dashArray: "",
-      fillOpacity: 0.7,
-    });
 
-    // if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    //   layer.bringToFront();
-    // }
-  };
+  const onEach = () => {};
   return (
     <div className="bg-red-200 h-screen container mx-auto flex flex-col items-center">
       <h1 className="text-lg text-white font-semibold">
@@ -26,16 +15,12 @@ const HomeMain = () => {
       </h1>
       {/* <div className="w-16 h-16 bg-[url('./images/background.jpg')] bg-center bg-cover"></div>
        */}
-      <MapContainer
-        center={center}
-        zoom={7.4}
-        style={{ width: "100vw", height: "100vh" }}
-      >
+      <MapContainer center={center} zoom={6.5} className="w-full h-full">
         <TileLayer
           url="https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=IIIGqRrVE9Zu8srlRf8d"
           attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
         />
-        {data.features.map((feature) => {
+        {data.features.map((feature, index) => {
           const coordinates = feature.geometry.coordinates[0].map((coor) => [
             coor[1],
             coor[0],
@@ -43,6 +28,7 @@ const HomeMain = () => {
 
           return (
             <Polygon
+              key={index}
               pathOptions={{
                 fillColor: "#FD8D3C",
                 fillOpacity: 0.7,
@@ -63,6 +49,9 @@ const HomeMain = () => {
                     opacity: 1,
                     color: "white",
                   });
+                  <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                  </Popup>;
                 },
                 mouseout: (e) => {
                   const layer = e.target;
