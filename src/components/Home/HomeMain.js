@@ -1,6 +1,6 @@
 import React from "react";
 import { TileLayer, Polygon } from "react-leaflet";
-import { Popup } from "react-leaflet";
+import { Popup, Tooltip } from "react-leaflet";
 import { MapContainer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { data } from "../Global/data2";
@@ -49,9 +49,6 @@ const HomeMain = () => {
                     opacity: 1,
                     color: "white",
                   });
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  </Popup>;
                 },
                 mouseout: (e) => {
                   const layer = e.target;
@@ -65,7 +62,9 @@ const HomeMain = () => {
                 },
                 click: (e) => {},
               }}
-            />
+            >
+              <Tooltip>Tooltip in Polygon</Tooltip>
+            </Polygon>
           );
         })}
       </MapContainer>
