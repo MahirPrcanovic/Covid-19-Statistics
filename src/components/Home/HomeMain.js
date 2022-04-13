@@ -7,7 +7,20 @@ import { data } from "../Global/data2";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 const doughData = {
-  labels: ["Red", "Blue", "Yellow", "Orange", "Pink", "Purple"],
+  labels: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "Maj",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Okt",
+    "Nov",
+    "Dec",
+  ],
   datasets: [
     {
       label: "Mahir",
@@ -20,11 +33,7 @@ const HomeMain = () => {
   return (
     <div>
       <div className="h-screen container mx-auto flex flex-col items-center">
-        <MapContainer
-          center={center}
-          zoom={6.5}
-          className="w-full h-3/5 sm:h-full"
-        >
+        <MapContainer center={center} zoom={6.5} className="w-full h-3/5">
           <TileLayer
             url="https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=IIIGqRrVE9Zu8srlRf8d"
             attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
