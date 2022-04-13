@@ -4,12 +4,22 @@ import { Tooltip } from "react-leaflet";
 import { MapContainer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { data } from "../Global/data2";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
+const doughData = {
+  labels: ["Red", "Blue", "Yellow", "Orange", "Pink", "Purple"],
+  datasets: [
+    {
+      label: "Mahir",
+      data: [12, 13, 14, 15, 6, 7],
+    },
+  ],
+};
 const HomeMain = () => {
   const center = [43.7390072740577, 17.61093950780978];
-
   return (
-    <div className="flex">
-      <div className=" h-screen container mx-auto flex flex-col items-center">
+    <div>
+      <div className="h-screen container mx-auto flex flex-col items-center">
         <MapContainer
           center={center}
           zoom={6.5}
@@ -109,6 +119,7 @@ const HomeMain = () => {
           </div>
         </div>
       </div>
+      <Line data={doughData} />
     </div>
   );
 };
