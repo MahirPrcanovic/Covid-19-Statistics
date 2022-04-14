@@ -23,8 +23,9 @@ const doughData = {
   ],
   datasets: [
     {
-      label: "Mahir",
-      data: [12, 13, 14, 15, 6, 7],
+      label: "Covid slučajevi",
+      data: [20, 13, 14, 15, 6, 7, 50, 30, 40, 20, 60, 33],
+      backgroundColor: ["red"],
     },
   ],
 };
@@ -75,7 +76,7 @@ const HomeMain = () => {
                       weight: 2,
                       dashArray: "3",
                       color: "white",
-                      fillColor: "#FD8D3C",
+                      fillColor: "blue",
                     });
                   },
                   click: (e) => {},
