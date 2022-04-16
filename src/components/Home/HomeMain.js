@@ -4,8 +4,40 @@ import { Tooltip } from "react-leaflet";
 import { MapContainer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { data } from "../Global/data2";
-import { Line } from "react-chartjs-2";
+import { Line, Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+const pieData = {
+  labels: [
+    "Unsko-sanski kanton",
+    "Posavski kanton",
+    "Tuzlanski kanton",
+    "Zeničko-dobojski kanton",
+    "Bosansko-podrinjski kanton",
+    "Srednjobosanski kanton",
+    "Hercegovačko-neretvanski kanton",
+    "Zapadno-hercegovački kanton",
+    "Kanton Sarajevo",
+    "Kanton 10",
+  ],
+  datasets: [
+    {
+      label: "Covid slučajevi",
+      data: [200, 130, 140, 150, 60, 70, 500, 300, 400, 200],
+      backgroundColor: [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "brown",
+        "gold",
+        "aqua",
+        "black",
+      ],
+    },
+  ],
+};
 const doughData = {
   labels: [
     "Jan",
@@ -23,13 +55,25 @@ const doughData = {
   ],
   datasets: [
     {
-      label: "Covid slučajevi",
+      label: "Novi slučajevi",
       data: [20, 13, 14, 15, 6, 7, 50, 30, 40, 20, 60, 33],
       backgroundColor: ["red"],
+    },
+    {
+      label: "Oporavljeni",
+      data: [45, 20, 25, 11, 65, 75, 55, 35, 45, 25, 65, 35],
+      backgroundColor: ["green"],
     },
   ],
 };
 const HomeMain = () => {
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
   const center = [43.7390072740577, 17.61093950780978];
   return (
     <div>
@@ -93,7 +137,7 @@ const HomeMain = () => {
         </MapContainer>
         <div className="flex flex-col justify-center">
           <h2 className="text-xl font-mont text-center pt-3">
-            Analitički i grafički prikaz podataka BiH
+            Analitički i grafički prikaz podataka BiH 2021
           </h2>
           <div className="w-11/12 border-2 m-auto text-center mt-2 border-gray-100 flex flex-col gap-2 p-2 drop-shadow-sm font-mont">
             <h2 className="text-gray-600">Ukupan broj testova</h2>
@@ -130,6 +174,12 @@ const HomeMain = () => {
         </div>
       </div>
       <Line data={doughData} />
+      <h1 className="text-center pt-5 pb-5 font-mont">
+        Smrtni slučajevi zadnjih mjesec dana
+      </h1>
+      <div className="w-1/2 h-1/2 m-auto">
+        <Pie data={pieData} options={options} />
+      </div>
     </div>
   );
 };
