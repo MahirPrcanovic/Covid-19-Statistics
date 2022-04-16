@@ -4,37 +4,28 @@ import { Tooltip } from "react-leaflet";
 import { MapContainer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { data } from "../Global/data2";
-import { Line, Pie } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 const pieData = {
   labels: [
-    "Unsko-sanski kanton",
-    "Posavski kanton",
-    "Tuzlanski kanton",
-    "Zeničko-dobojski kanton",
-    "Bosansko-podrinjski kanton",
-    "Srednjobosanski kanton",
-    "Hercegovačko-neretvanski kanton",
-    "Zapadno-hercegovački kanton",
-    "Kanton Sarajevo",
-    "Kanton 10",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "Maj",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Okt",
+    "Nov",
+    "Dec",
   ],
   datasets: [
     {
       label: "Covid slučajevi",
-      data: [200, 130, 140, 150, 60, 70, 500, 300, 400, 200],
-      backgroundColor: [
-        "red",
-        "blue",
-        "green",
-        "yellow",
-        "purple",
-        "orange",
-        "brown",
-        "gold",
-        "aqua",
-        "black",
-      ],
+      data: [200, 130, 140, 150, 60, 70, 200, 300, 400, 200, 250, 300],
+      backgroundColor: ["black"],
     },
   ],
 };
@@ -173,12 +164,10 @@ const HomeMain = () => {
           </div>
         </div>
       </div>
-      <Line data={doughData} />
-      <h1 className="text-center pt-5 pb-5 font-mont">
-        Smrtni slučajevi zadnjih mjesec dana
-      </h1>
-      <div className="w-1/2 h-1/2 m-auto">
-        <Pie data={pieData} options={options} />
+      <div>
+        <Line data={doughData} />
+        <h1 className="text-center pt-5 pb-5 font-mont">Smrtni slučajevi</h1>
+        <Line data={pieData} options={options} />
       </div>
     </div>
   );
