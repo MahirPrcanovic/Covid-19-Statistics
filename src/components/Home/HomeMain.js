@@ -68,7 +68,7 @@ const HomeMain = () => {
   const center = [43.7390072740577, 17.61093950780978];
   return (
     <div>
-      <div className="h-screen container mx-auto flex flex-col items-center">
+      <div className="h-screen mx-auto flex flex-col items-center lg:flex-row">
         <MapContainer center={center} zoom={6.5} className="w-full h-3/5">
           <TileLayer
             url="https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=IIIGqRrVE9Zu8srlRf8d"
@@ -79,7 +79,6 @@ const HomeMain = () => {
               coor[1],
               coor[0],
             ]);
-            console.log(feature);
             return (
               <Polygon
                 key={index}
@@ -126,48 +125,65 @@ const HomeMain = () => {
           })}
           <div className="w-1/2 h-1/2">TEKSt</div>
         </MapContainer>
+
         <div className="flex flex-col justify-center">
           <h2 className="text-xl font-mont text-center pt-3">
             Analitički i grafički prikaz podataka BiH 2021
           </h2>
-          <div className="w-11/12 border-2 m-auto text-center mt-2 border-gray-100 flex flex-col gap-2 p-2 drop-shadow-sm font-mont">
+          <div className="w-11/12 border-2 m-auto text-center mt-2 border-gray-100 flex flex-col gap-2 p-2 drop-shadow-sm font-mont md:w-full">
             <h2 className="text-gray-600">Ukupan broj testova</h2>
-            <h3 className="text-black text-xl  font-bold">1245658</h3>
+            <h3 className="text-black text-xl  font-bold md:text-2xl">
+              1245658
+            </h3>
           </div>
-          <div className="grid grid-cols-2 w-11/12 m-auto gap-3">
+          <div className="grid grid-cols-2 w-11/12 m-auto gap-3 md:w-full">
             <div className=" w-full border-2 m-auto text-center mt-2 border-gray-100 flex flex-col gap-2 p-2 drop-shadow-sm font-mont">
               {" "}
-              <h2 className="text-gray-600 text-sm">Ukupno potvrđenih</h2>
-              <h3 className="text-black text-xl  font-bold text-red-400">
+              <h2 className="text-gray-600 text-sm md:text-xl">
+                Ukupno potvrđenih
+              </h2>
+              <h3 className="text-black text-xl  font-bold text-red-400 md:text-2xl">
                 250132
               </h3>
             </div>
             <div className=" w-full border-2 m-auto text-center mt-2 border-gray-100 flex flex-col gap-2 p-2 drop-shadow-sm font-mont">
               {" "}
-              <h2 className="text-gray-600 text-sm">Ukupno izliječenih</h2>
-              <h3 className="text-black text-xl  font-bold text-green-400">
+              <h2 className="text-gray-600 text-sm md:text-xl">
+                Ukupno izliječenih
+              </h2>
+              <h3 className="text-black text-xl  font-bold text-green-400 md:text-2xl">
                 229841
               </h3>
             </div>
             <div className=" w-full border-2 m-auto text-center mt-2 border-gray-100 flex flex-col gap-2 p-2 drop-shadow-sm font-mont">
               {" "}
-              <h2 className="text-gray-600 text-sm">Ukupno umrlih</h2>
-              <h3 className="text-black text-xl  font-bold">8858</h3>
+              <h2 className="text-gray-600 text-sm md:text-xl">
+                Ukupno umrlih
+              </h2>
+              <h3 className="text-black text-xl  font-bold md:text-2xl">
+                8858
+              </h3>
             </div>
             <div className="w-full border-2 m-auto text-center mt-2 border-gray-100 flex flex-col gap-2 p-2 drop-shadow-sm font-mont">
               {" "}
-              <h2 className="text-gray-600 text-sm">Ukupno aktivnih</h2>
-              <h3 className="text-black text-xl  font-bold text-purple-400">
+              <h2 className="text-gray-600 text-sm md:text-xl">
+                Ukupno aktivnih
+              </h2>
+              <h3 className="text-black text-xl  font-bold text-purple-400 md:text-2xl">
                 11433
               </h3>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <Line data={doughData} />
+      <div className="w-screen">
+        <div className="sm:w-3/5  sm:m-auto">
+          <Line data={doughData} />
+        </div>
         <h1 className="text-center pt-5 pb-5 font-mont">Smrtni slučajevi</h1>
-        <Line data={pieData} options={options} />
+        <div className="sm:w-3/5  sm:m-auto">
+          <Line data={pieData} options={options} />
+        </div>
       </div>
     </div>
   );
